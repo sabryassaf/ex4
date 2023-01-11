@@ -1,0 +1,25 @@
+//
+// Created by royb9 on 11/01/2023.
+//
+
+#include "Ninja.h"
+#include "utilities.h"
+
+Ninja::Ninja(const char* name) : Player(name)
+{}
+
+void Ninja::addCoins(int money)
+{
+    Player::addCoins(money * 2);
+}
+
+void Ninja::playerInfo(std::ostream& os) const
+{
+    printPlayerDetails(os,
+                       this->m_name,
+                       "Ninja",
+                       this->m_level,
+                       this->m_force,
+                       this->m_HP.get_current(),
+                       this->m_coins);
+}
