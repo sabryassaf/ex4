@@ -8,6 +8,7 @@ class Player
 {
 private:
     static const int MAX_LEVEL = 10;
+    static const int DEFAULT_FORCE = 5;
 
     virtual void playerInfo(std::ostream &os) const = 0;
 
@@ -27,7 +28,7 @@ public:
 
     void levelUp();
     int getLevel() const;
-    virtual void buff(int buffLevel);
+    void buff(int buffLevel);
     virtual int getAttackStrength() const;
     virtual void heal(int healLevel);
     void damage(int hpLost);

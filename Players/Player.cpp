@@ -3,7 +3,7 @@
 #include "utilities.h"
 
 Player::Player(const char* name) :
-    m_name(name), m_level(1), m_force(), m_HP(), m_coins(0)
+    m_name(name), m_level(1), m_force(DEFAULT_FORCE), m_HP(), m_coins(0)
 {}
 
 int Player::getLevel() const
