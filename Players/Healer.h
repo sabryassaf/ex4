@@ -10,7 +10,7 @@
 class Healer : public Player
 {
 public:
-    Healer(const char* name);
+    explicit Healer(std::string name);
 
     void heal(int healLevel) override;
     void playerInfo(std::ostream &os) const override;

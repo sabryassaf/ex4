@@ -13,14 +13,14 @@ private:
     virtual void playerInfo(std::ostream &os) const = 0;
 
 protected:
-    const char* m_name;
+    std::string m_name;
     int m_level;
     int m_force;
     HitPoints m_HP;
     int m_coins;
 
 public:
-    Player(const char* name);
+    explicit Player(std::string name);
 
     Player(const Player&) = default;
     ~Player() = default;

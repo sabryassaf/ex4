@@ -5,7 +5,7 @@
 #include "Ninja.h"
 #include "utilities.h"
 
-Ninja::Ninja(const char* name) : Player(name)
+Ninja::Ninja(std::string name) : Player(name)
 {}
 
 void Ninja::addCoins(int money)

@@ -5,7 +5,7 @@
 #include "Healer.h"
 #include "utilities.h"
 
-Healer::Healer(const char* name) : Player(name)
+Healer::Healer(std::string name) : Player(name)
 {}
 
 void Healer::heal(int healLevel)

@@ -10,7 +10,7 @@
 class Warrior : public Player
 {
 public:
-    explicit Warrior(const char* name);
+    explicit Warrior(std::string name);
 
     int getAttackStrength() const override;
     void playerInfo(std::ostream &os) const override;

@@ -5,7 +5,7 @@
 #include "Warrior.h"
 #include "utilities.h"
 
-Warrior::Warrior(const char* name) : Player(name)
+Warrior::Warrior(std::string name) : Player(name)
 {}
 
 int Warrior::getAttackStrength() const
