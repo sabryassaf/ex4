@@ -3,3 +3,23 @@
 //
 
 #include "Healer.h"
+#include "utilities.h"
+
+Healer::Healer(const char* name) : Player(name)
+{}
+
+void Healer::heal(int healLevel)
+{
+    Player::heal(healLevel * 2);
+}
+
+void Healer::playerInfo(std::ostream& os) const
+{
+    printPlayerDetails(os,
+                       this->m_name,
+                       "Healer",
+                       this->m_level,
+                       this->m_force,
+                       this->m_HP.get_current(),
+                       this->m_coins);
+}
