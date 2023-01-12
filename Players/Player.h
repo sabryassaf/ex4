@@ -16,7 +16,7 @@ protected:
     std::string m_name;
     int m_level;
     int m_force;
-    HitPoints m_HP;
+    HitPoints m_hp;
     int m_coins;
 
 public:
@@ -26,8 +26,12 @@ public:
     ~Player() = default;
     Player& operator=(const Player& other) = default;
 
-    void levelUp();
+    std::string getName() const;
     int getLevel() const;
+    int getHP() const;
+    int getCoins() const;
+
+    void levelUp();
     void buff(int buffLevel);
     virtual int getAttackStrength() const;
     virtual void heal(int healLevel);

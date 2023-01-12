@@ -20,6 +20,6 @@ void Ninja::playerInfo(std::ostream& os) const
                        "Ninja",
                        this->m_level,
                        this->m_force,
-                       this->m_HP.get_current(),
+                       this->m_hp.get_current(),
                        this->m_coins);
 }

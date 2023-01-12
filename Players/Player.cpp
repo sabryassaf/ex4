@@ -3,12 +3,27 @@
 #include "utilities.h"
 
 Player::Player(std::string name) :
-    m_name(name), m_level(1), m_force(DEFAULT_FORCE), m_HP(), m_coins(0)
+    m_name(name), m_level(1), m_force(DEFAULT_FORCE), m_hp(), m_coins(0)
 {}
+
+std::string Player::getName() const
+{
+    return this->m_name;
+}
 
 int Player::getLevel() const
 {
     return m_level;
+}
+
+int Player::getHP() const
+{
+    return this->m_hp.get_current();
+}
+
+int Player::getCoins() const
+{
+    return this->m_coins;
 }
 
 void Player::levelUp()
@@ -32,7 +47,7 @@ void Player::heal(int healLevel)
     /* Can't heal by a negative amount. */
     if (healLevel >= 0)
     {
-        this->m_HP += healLevel;
+        this->m_hp += healLevel;
     }
 }
 
@@ -41,13 +56,13 @@ void Player::damage(int hpLost)
     /* Can't take negative damage. */
     if (hpLost > 0)
     {
-        m_HP -= hpLost;
+        m_hp -= hpLost;
     }
 }
 
 bool Player::isKnockedOut() const
 {
-    return m_HP == 0;
+    return m_hp == 0;
 }
 
 void Player::addCoins(int money)
