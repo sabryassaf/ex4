@@ -8,19 +8,20 @@
 #include <string>
 #include <Player.h>
 #include <utilities.h>
+
 using namespace std;
 
 class Card
 {
-private:
+protected:
     string m_type;
-    string m_name;
 
 public:
-    Card(string type, string name) : m_type(type), m_name(name)
+    Card(string type) : m_type(type)
     {}
-    string getName() const;
+
     string getType() const;
+
     virtual void applyCard(Player &player) = 0;
 };
 
@@ -36,9 +37,35 @@ public:
                                                                              m_damage(damage), m_loot(loot)
     {}
 
-    void applyCard(Player &player);
+    void applyCard(Player &player) override;
 
 };
 
+class PeacefulCards : public Card
+{
+private:
+    int m_fall_fight_damage;
+    int m_heal;
+
+public:
+    PeacefulCards(string type, string name, int fall_damage, int heal) : Card(type, name),
+                                                                         m_fall_fight_damage(fall_damage),
+                                                                         m_heal(heal)
+    {}
+
+    void applyCard(Player &player) override;
+};
+
+class FinanceCards : public Card
+{
+private:
+    int m_Treasure;
+
+public:
+    FinanceCards(string type, string name, int treasure) : Card(type, name), m_Treasure(treasure)
+    {}
+
+    void applyCard(Player &player) override;
+};
 
 #endif //EX4_CARD_H

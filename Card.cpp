@@ -23,7 +23,53 @@ string Card::getName() const
 {
     return m_name;
 }
+
 string Card::getType() const
 {
     return m_type;
 };
+
+void PeacefulCards::applyCard(Player &player)
+{
+    if (m_type == "Well Card")
+    {
+        if (player.getName() == "Ninja")
+        {
+            return;
+        } else
+        {
+            player.damage(m_fall_fight_damage);
+            return;
+        }
+    } else if (m_type == "Barfight Card")
+    {
+        if (player.getName() == "Warrior")
+        {
+            return;
+        } else
+        {
+            player.damage(m_fall_fight_damage);
+        }
+    } else if (m_type == "Mana Card")
+    {
+        if (player.getName() == "Healer")
+        {
+            int double_heal = 2 * m_heal;
+            player.heal(double_heal);
+            return;
+
+        } else
+        {
+            player.heal(m_heal);
+            return;
+        }
+    }
+}
+
+
+void FinanceCards::applyCard(Player &player)
+{
+    if(m_type == "Merchant Cards"){
+
+    }
+}
