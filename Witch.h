@@ -7,18 +7,13 @@
 
 #include <Card.h>
 
-class Witch : public Card
+class Witch : public BattleCards
 {
 private:
-    int m_force;
-    int m_damage;
-    int m_loot;
-
 public:
-    Witch(string type, int force, int damage, int loot) : Card("Witch"), m_force(11), m_damage(10), m_loot(2)
+    Witch(string& type) : BattleCards(type,11,10,2)
     {}
 
-    void applyCard(Player &player) override;
 };
 
 #endif //EX4_WITCH_H

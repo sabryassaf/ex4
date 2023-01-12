@@ -6,17 +6,14 @@
 #define EX4_DRAGON_H
 #include <Card.h>
 
-class Dragon : public Card
+class Dragon : public BattleCards
 {
-private:
-    int m_force;
-    int m_damage;
-    int m_loot;
-
 public:
-    Dragon(string type, int force, int damage, int loot) : Card("Dragon"), m_force(25), m_damage(0), m_loot(2)
-    {}
+    Dragon(string type): BattleCards(type,25,0,1000)
+    {
+    }
 
-    void applyCard(Player &player) override;
+    void applyCardDamage(Player &player) override;
+
 };
 #endif //EX4_DRAGON_H
