@@ -5,7 +5,7 @@
 #ifndef EX4_TREASURE_H
 #define EX4_TREASURE_H
 
-#include <Card.h>
+#include "Card.h"
 
 class Treasure : FinanceCards
 {

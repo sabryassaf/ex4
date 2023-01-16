@@ -5,7 +5,7 @@
 #ifndef EX4_MANA_H
 #define EX4_MANA_H
 
-#include <Card.h>
+#include "Card.h"
 
 class Mana : PeacefulCards
 {

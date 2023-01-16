@@ -5,7 +5,7 @@
 #ifndef EX4_WITCH_H
 #define EX4_WITCH_H
 
-#include <Card.h>
+#include "Card.h"
 
 class Witch : public BattleCards
 {

@@ -5,7 +5,7 @@
 #ifndef EX4_GREMLIN_H
 #define EX4_GREMLIN_H
 
-#include <Card.h>
+#include "Card.h"
 
 class Gremlin : public BattleCards
 {

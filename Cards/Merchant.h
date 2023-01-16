@@ -5,7 +5,7 @@
 #ifndef EX4_MERCHANT_H
 #define EX4_MERCHANT_H
 
-#include <Card.h>
+#include "Card.h"
 
 class Merchant : FinanceCards
 {

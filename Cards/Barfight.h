@@ -5,7 +5,7 @@
 #ifndef EX4_BARFIGHT_H
 #define EX4_BARFIGHT_H
 
-#include <Card.h>
+#include "Card.h"
 
 class Barfight : PeacefulCards
 {
