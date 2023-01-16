@@ -114,5 +114,5 @@ int Player::getAttackStrength() const
 
 void Player::printInfo() const
 {
-    printPlayerInfo(m_name,m_level,m_force,m_HP,m_coins);
+//    printPlayerInfo(m_name,m_level,m_force,m_HP,m_coins);
 }

@@ -5,12 +5,12 @@
 #ifndef EX4_BARFIGHT_H
 #define EX4_BARFIGHT_H
 
-#include <Card.h>
+#include "Card.h"
 
-class Barfight : PeacefulCards
+class Barfight : public PeacefulCards
 {
 public:
-    Barfight(string &type) : PeacefulCards(type, 10, 0)
+    Barfight() : PeacefulCards("Barfight", 10, 0)
     {
 
     }

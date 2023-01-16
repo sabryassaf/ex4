@@ -5,16 +5,17 @@
 #ifndef EX4_MERCHANT_H
 #define EX4_MERCHANT_H
 
-#include <Card.h>
+#include "Card.h"
 
-class Merchant : FinanceCards
+class Merchant : public FinanceCards
 {
 public:
-    Merchant(string &type) : FinanceCards(type, 0)
+    Merchant() : FinanceCards("Merchant", 0)
     {
 
     }
     void applyFinanceCard(Player &player) override;
+    void applyPayment(ostream &os,Player& player, int x);
 };
 
 #endif //EX4_MERCHANT_H

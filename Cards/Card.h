@@ -7,8 +7,7 @@
 
 #include <string>
 #include <Player.h>
-#include <utilities.h>
-
+#include "utilities.h"
 using namespace std;
 
 class Card
@@ -17,7 +16,7 @@ protected:
     string m_type;
 
 public:
-    Card(string &type) : m_type(type)
+    Card(string type) : m_type(type)
     {}
 
     string getType() const;
@@ -33,7 +32,7 @@ protected:
     int m_loot;
 
 public:
-    BattleCards(string &type, int force, int damage, int loot) : Card(type), m_force(force),
+    BattleCards(string type, int force, int damage, int loot) : Card(type), m_force(force),
                                                                  m_damage(damage), m_loot(loot)
     {}
 
@@ -56,7 +55,7 @@ protected:
     int m_heal;
 
 public:
-    PeacefulCards(string &type, int fall_fight_damage, int heal) : Card(type),
+    PeacefulCards(string type, int fall_fight_damage, int heal) : Card(type),
                                                                    m_fall_fight_damage(fall_fight_damage),
                                                                    m_heal(heal)
     {}
@@ -72,7 +71,7 @@ protected:
     int m_Treasure;
 
 public:
-    FinanceCards(string & type, int treasure) : Card(type), m_Treasure(treasure)
+    FinanceCards(string  type, int treasure) : Card(type), m_Treasure(treasure)
     {}
 
     void applyCard(Player &player) override;

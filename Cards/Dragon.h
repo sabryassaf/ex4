@@ -4,12 +4,12 @@
 
 #ifndef EX4_DRAGON_H
 #define EX4_DRAGON_H
-#include <Card.h>
+#include "Card.h"
 
 class Dragon : public BattleCards
 {
 public:
-    Dragon(string type): BattleCards(type,25,0,1000)
+    Dragon(): BattleCards("Dragon",25,0,1000)
     {
     }
 

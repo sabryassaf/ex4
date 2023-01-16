@@ -5,12 +5,12 @@
 #ifndef EX4_MANA_H
 #define EX4_MANA_H
 
-#include <Card.h>
+#include "Card.h"
 
-class Mana : PeacefulCards
+class Mana : public PeacefulCards
 {
 public:
-    Mana(string &type) : PeacefulCards(type, 0, 10)
+    Mana() : PeacefulCards("Mana", 0, 10)
     {}
 
     void applyPeacefulCard(Player &player) override;

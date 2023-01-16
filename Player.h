@@ -56,6 +56,11 @@ public:
     {
         return m_maxHP;
     }
+
+    int getCoins() const
+    {
+        return m_coins;
+    }
 };
 
 
