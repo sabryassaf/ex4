@@ -38,6 +38,16 @@ void HitPoints::setHP(int value)
     this->m_currentHP = value;
 }
 
+int HitPoints::get_current() const
+{
+    return this->m_currentHP;
+}
+
+int HitPoints::getMaxHP() const
+{
+    return this->m_maxHP;
+}
+
 /* Arithmetic operators */
 
 HitPoints HitPoints::operator+(int value) const
@@ -170,9 +180,4 @@ bool operator<=(int value, const HitPoints& hp)
 std::ostream& operator<<(std::ostream& os, const HitPoints& hp)
 {
     return os << hp.m_currentHP << "(" << hp.m_maxHP << ")";
-}
-
-int HitPoints::get_current() const
-{
-    return this->m_currentHP;
 }

@@ -101,3 +101,13 @@ std::ostream& operator<<(std::ostream& os, const Player& player)
     player.playerInfo(os);
     return os;
 }
+
+bool Player::isMaxLevel() const
+{
+    return this->m_level == MAX_LEVEL;
+}
+
+int Player::maxHp() const
+{
+    return this->m_hp.getMaxHP();
+}

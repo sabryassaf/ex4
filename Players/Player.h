@@ -28,7 +28,9 @@ public:
 
     std::string getName() const;
     int getLevel() const;
+    bool isMaxLevel() const;
     int getHP() const;
+    int maxHp() const;
     int getCoins() const;
 
     void levelUp();
