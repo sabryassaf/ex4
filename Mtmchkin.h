@@ -15,7 +15,6 @@ class Mtmchkin
 {
 private:
     int m_round;
-    int m_lineNumber;
 
     std::vector<std::unique_ptr<Player>> m_players;
     std::deque<std::unique_ptr<Player>> m_winners;

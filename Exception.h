@@ -1,15 +1,16 @@
 #ifndef __EXCEPTION_H_
 #define __EXCEPTION_H_
 
-class DeckFileNotFound : std::exception
+class DeckFileNotFound : public std::exception
 {
+public:
     const char * what() const noexcept override
     {
         return "Deck File Error: File not found";
     }
 };
 
-class DeckFileFormatError : std::exception
+class DeckFileFormatError : public std::exception
 {
 private:
     int m_lineNumber;
@@ -27,8 +28,9 @@ public:
     }
 };
 
-class DeckFileInvalidSize : std::exception
+class DeckFileInvalidSize : public std::exception
 {
+public:
     const char * what() const noexcept override
     {
         return "Deck File Error: Deck size is invalid";

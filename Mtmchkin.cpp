@@ -20,36 +20,35 @@
 #include "Players/Warrior.h"
 #include "utilities.h"
 
-Mtmchkin::Mtmchkin(const std::string& fileName) : m_round(0), m_lineNumber(0)
+Mtmchkin::Mtmchkin(const std::string& fileName) : m_round(0)
 {
-    try
+    int lineNumber = 0;
+
+    std::ifstream file(fileName);
+    if (!file.is_open())
     {
-        std::ifstream file(fileName);
-//        std::cout << !file.is_open() << std::endl;
-        if (!file.is_open())
+        throw DeckFileNotFound();
+    }
+    std::string line;
+
+    while (std::getline(file, line))
+    {
+        try
         {
-            throw std::runtime_error("need to change it");
+            addCard(line);
+            lineNumber++;
         }
-        std::string line;
-
-        while (std::getline(file, line))
+        catch (std::invalid_argument& e)
         {
-            try
-            {
-                addCard(line);
-                m_lineNumber++;
-
-            }
-            catch (...)
-            {
-                printf("hi");
-            }
+            throw DeckFileFormatError(lineNumber);
         }
     }
-    catch (...)
+
+    if (lineNumber < 5)
     {
-        printf("end");
+        throw DeckFileInvalidSize();
     }
+
     startGame();
 }
 
@@ -228,8 +227,10 @@ void Mtmchkin::addCard(const std::string& line)
         std::unique_ptr<Card> temp(new Barfight());
         m_deck.push(std::move(temp));
     }
-
-
+    else
+    {
+        throw std::invalid_argument("Invalid card received.");
+    }
 }
 
 void Mtmchkin::printLeaderBoard() const
