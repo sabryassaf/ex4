@@ -12,6 +12,7 @@ class Healer : public Player
 public:
     explicit Healer(std::string name);
 
+    std::string getPlayerType() const override;
     void heal(int healLevel) override;
     void playerInfo(std::ostream &os) const override;
 };

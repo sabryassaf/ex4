@@ -1,7 +1,7 @@
 
 #include <stdio.h>
 #include <iostream>
-#include "Dragon.h"
+#include "Cards/Dragon.h"
 
 using std::cout;
 using std::endl;
