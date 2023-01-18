@@ -52,9 +52,9 @@ Mtmchkin::Mtmchkin(const std::string &fileName) : m_round(0), m_lineNumber(0)
     startGame();
 }
 
-void Mtmchkin::playCard(unique_ptr<Player>& player)
+void Mtmchkin::playCard(std::unique_ptr<Player>& player)
 {
-    unique_ptr<Card> card = std::move(this->m_deck.front());
+    std::unique_ptr<Card> card = std::move(this->m_deck.front());
     this->m_deck.pop();
     card->applyCard(*player);
     this->m_deck.push(std::move(card));
@@ -128,6 +128,8 @@ bool Mtmchkin::testPlayerNameClass(std::string name, std::string className)
         }
     }
 
+    /* TODO */
+    return true;
 }
 
 int Mtmchkin::getPlayerCount()

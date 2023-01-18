@@ -21,14 +21,14 @@ class Mtmchkin
     std::deque<std::unique_ptr<Player>> m_winners;
     std::vector<std::unique_ptr<Player>> m_losers;
 
-    std::queue<unique_ptr<Card>> m_deck;
+    std::queue<std::unique_ptr<Card>> m_deck;
 
     /**
      * Have the given `player` draw and play the next card in the deck.
      *
      * @param player The player that plays the current turn.
      * */
-    void playCard(unique_ptr<Player>& player);
+    void playCard(std::unique_ptr<Player>& player);
 
 public:
     Mtmchkin(Mtmchkin&) = delete;

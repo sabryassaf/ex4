@@ -16,10 +16,8 @@ void BattleCards::applyCard(Player &player)
     } else
     {
         applyCardDamage(player);
-//        printLossBattle(player.getName(), getType());
+        printLossBattle(player.getName(), getType());
     }
-
-
 }
 
 void BattleCards::applyCardDamage(Player &player)
@@ -31,7 +29,7 @@ void BattleCards::applyCardWins(Player &player)
 {
     player.levelUp();
     player.addCoins(m_loot);
-//    printWinBattle(player.getName(), getType());
+    printWinBattle(player.getName(), getType());
 }
 
 bool BattleCards::cardWins(Player &player)

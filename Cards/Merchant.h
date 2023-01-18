@@ -10,12 +10,20 @@
 class Merchant : public FinanceCards
 {
 public:
-    Merchant() : FinanceCards("Merchant", 0)
-    {
-
-    }
+    Merchant() : FinanceCards("Merchant", 0) {}
     void applyFinanceCard(Player &player) override;
-    void applyPayment(std::ostream &os,Player& player, int x);
+
+    /**
+     * Apply the payment for the card.
+     *
+     * @param player Player to apply payment for.
+     * @param choice Choice for payment method.
+     *
+     *  0 - No payment
+     *  1 - Heal
+     *  2 - Force
+     * */
+    void applyPayment(std::ostream &os,Player& player, int choice);
 };
 
 #endif //EX4_MERCHANT_H
