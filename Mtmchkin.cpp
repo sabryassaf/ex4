@@ -3,7 +3,7 @@
 //
 #include "Mtmchkin.h"
 
-Mtmchkin::Mtmchkin(const std::string &fileName) : m_Round(0), m_Line_Number(0)
+Mtmchkin::Mtmchkin(const std::string &fileName) : m_round(0), m_lineNumber(0)
 {
     try
     {
@@ -20,7 +20,7 @@ Mtmchkin::Mtmchkin(const std::string &fileName) : m_Round(0), m_Line_Number(0)
             try
             {
                 addCard(line);
-                m_Line_Number++;
+                m_lineNumber++;
 
             }
             catch (...)
@@ -65,7 +65,7 @@ bool Mtmchkin::testPlayerNameClass(std::string name, std::string className)
     {
         return false;
     }
-    for (std::unique_ptr<Player> & it: m_PlayersQueue)
+    for (std::unique_ptr<Player> & it: m_players)
     {
         if (it->getName() == name && it->getPlayerType() == className)
         {
@@ -108,35 +108,35 @@ void Mtmchkin::addCard(std::string line)
     if (line == "Witch")
     {
         std::unique_ptr<Card> temp(new Witch());
-        m_CardDeck.push_back(std::move(temp));
+        m_deck.push_back(std::move(temp));
     } else if (line == "Well")
     {
         std::unique_ptr<Card> temp(new Well());
-        m_CardDeck.push_back(std::move(temp));
+        m_deck.push_back(std::move(temp));
     } else if (line == "Treasure")
     {
         std::unique_ptr<Card> temp(new Treasure());
-        m_CardDeck.push_back(std::move(temp));
+        m_deck.push_back(std::move(temp));
     } else if (line == "Merchant")
     {
         std::unique_ptr<Card> temp(new Merchant());
-        m_CardDeck.push_back(std::move(temp));
+        m_deck.push_back(std::move(temp));
     } else if (line == "Mana")
     {
         std::unique_ptr<Card> temp(new Mana());
-        m_CardDeck.push_back(std::move(temp));
+        m_deck.push_back(std::move(temp));
     } else if (line == "Gremlin")
     {
         std::unique_ptr<Card> temp(new Gremlin());
-        m_CardDeck.push_back(std::move(temp));
+        m_deck.push_back(std::move(temp));
     } else if (line == "Dragon")
     {
         std::unique_ptr<Card> temp(new Dragon());
-        m_CardDeck.push_back(std::move(temp));
+        m_deck.push_back(std::move(temp));
     } else if (line == "Barfight")
     {
         std::unique_ptr<Card> temp(new Barfight());
-        m_CardDeck.push_back(std::move(temp));
+        m_deck.push_back(std::move(temp));
     }
 
 

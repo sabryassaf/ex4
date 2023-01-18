@@ -22,10 +22,10 @@
 #include "Players/Warrior.h"
 class Mtmchkin{
 private:
-    int m_Round;
-    int m_Line_Number;
-    std::vector<std::unique_ptr<Card>> m_CardDeck;
-    std::vector<std::unique_ptr<Player>> m_PlayersQueue;
+    int m_round;
+    int m_lineNumber;
+    std::vector<std::unique_ptr<Card>> m_deck;
+    std::vector<std::unique_ptr<Player>> m_players;
 public:
     
     /*
