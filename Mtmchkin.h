@@ -19,16 +19,16 @@ class Mtmchkin{
 private:
     int m_Round;
     int m_Line_Number;
-    vector<std::shared_ptr<Card>> m_CardDeck;
+    std::vector<std::unique_ptr<Card>> m_CardDeck;
     vector<Player> m_PlayersQueue;
-    std::shared_ptr<Witch> m_Witch;
-    std::shared_ptr<Well> m_Well;
-    std::shared_ptr<Treasure> m_Treasure;
-    std::shared_ptr<Merchant> m_Merchant;
-    std::shared_ptr<Mana> m_Mana;
-    std::shared_ptr<Gremlin> m_Gremlin;
-    std::shared_ptr<Dragon> m_Dragon;
-    std::shared_ptr<Barfight> m_Barfight;
+//    std::shared_ptr<Witch> m_Witch;
+//    std::shared_ptr<Well> m_Well;
+//    std::shared_ptr<Treasure> m_Treasure;
+//    std::shared_ptr<Merchant> m_Merchant;
+//    std::shared_ptr<Mana> m_Mana;
+//    std::shared_ptr<Gremlin> m_Gremlin;
+//    std::shared_ptr<Dragon> m_Dragon;
+//    std::shared_ptr<Barfight> m_Barfight;
 public:
     
     /*
@@ -76,6 +76,7 @@ public:
     void startGame();
     int getRoundsNumberFromUser();
     void addPlayer();
+    bool testPlayerNameClass(std::string name, std::string className);
 };
 
 
