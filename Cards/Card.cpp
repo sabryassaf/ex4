@@ -6,7 +6,7 @@
 std::string Card::getType() const
 {
     return m_type;
-};
+}
 
 void Card::printCard(std::ostream& os)
 {

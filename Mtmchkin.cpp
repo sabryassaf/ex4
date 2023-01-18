@@ -1,6 +1,7 @@
 //
 //
 
+#include <algorithm>
 #include "Mtmchkin.h"
 #include "Exceptions.h"
 #include "Cards/Barfight.h"
@@ -62,7 +63,8 @@ void Mtmchkin::playCard(std::unique_ptr<Player>& player)
 
 void Mtmchkin::playRound()
 {
-    printRoundStartMessage(this->m_current_round);
+    this->m_round++;
+    printRoundStartMessage(this->m_round);
 
     for (std::unique_ptr<Player>& player: this->m_players)
     {
@@ -76,7 +78,7 @@ void Mtmchkin::playRound()
 
         if (player->isKnockedOut())
         {
-            this->m_losers.push_back(std::move(player));
+            this->m_losers.push_front(std::move(player));
         }
         else if (player->isMaxLevel())
         {
@@ -84,7 +86,6 @@ void Mtmchkin::playRound()
         }
     }
 
-    this->m_current_round++;
     if (this->isGameOver())
     {
         printGameEndMessage();
@@ -127,12 +128,12 @@ void Mtmchkin::addPlayer()
     do
     {
         std::cin >> name >> className;
-    } while (testPlayerNameClass(name, className));
+    } while (!testPlayerNameClass(name, className));
 
     this->m_players.push_back(createPlayer(name, className));
 }
 
-bool Mtmchkin::testPlayerNameClass(std::string name, std::string className)
+bool Mtmchkin::testPlayerNameClass(const std::string& name, const std::string& className)
 {
     for (char c: name)
     {
@@ -163,32 +164,29 @@ bool Mtmchkin::testPlayerNameClass(std::string name, std::string className)
 int Mtmchkin::getPlayerCount()
 {
     int input = 0;
-    bool Flag = false;
-    while (!Flag)
+    bool receivedInput = false;
+    while (!receivedInput)
     {
-        try
+        std::cin >> input;
+
+        if (std::cin.fail())
         {
-            std::cin >> input;
-            if (std::cin.fail())
-            {
-                throw std::invalid_argument("");
-            }
-            if (input < 2 || input > 6)
-            {
-                printInvalidTeamSize();
-                throw std::out_of_range("");
-            }
-            Flag = true;
+            printInvalidInput();
+            continue;
         }
-        catch (const std::exception& e)
+        if (input < 2 || input > 6)
         {
-// not sure what to do here
+            printInvalidTeamSize();
+            continue;
         }
+
+        receivedInput = true;
     }
+
     return input;
 }
 
-void Mtmchkin::addCard(std::string line)
+void Mtmchkin::addCard(const std::string& line)
 {
     if (line == "Witch")
     {
@@ -246,6 +244,11 @@ void Mtmchkin::printLeaderBoard() const
     }
     for (const std::unique_ptr<Player>& player: this->m_players)
     {
+        if (nullptr == player)
+        {
+            continue;
+        }
+
         i++;
         printPlayerLeaderBoard(i, *player);
     }
@@ -258,10 +261,18 @@ void Mtmchkin::printLeaderBoard() const
 
 bool Mtmchkin::isGameOver() const
 {
-    return this->m_players.empty();
+    for (const std::unique_ptr<Player>& player: this->m_players)
+    {
+        if (nullptr != player)
+        {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 int Mtmchkin::getNumberOfRounds() const
 {
-    return this->m_current_round;
+    return this->m_round;
 }

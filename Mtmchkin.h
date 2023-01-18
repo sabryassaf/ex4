@@ -13,13 +13,13 @@
 
 class Mtmchkin
 {
-    int m_current_round;
+private:
     int m_round;
     int m_lineNumber;
 
     std::vector<std::unique_ptr<Player>> m_players;
     std::deque<std::unique_ptr<Player>> m_winners;
-    std::vector<std::unique_ptr<Player>> m_losers;
+    std::deque<std::unique_ptr<Player>> m_losers;
 
     std::queue<std::unique_ptr<Card>> m_deck;
 
@@ -29,6 +29,12 @@ class Mtmchkin
      * @param player The player that plays the current turn.
      * */
     void playCard(std::unique_ptr<Player>& player);
+
+    void addCard(const std::string& line);
+    void startGame();
+    static int getPlayerCount();
+    void addPlayer();
+    bool testPlayerNameClass(const std::string& name, const std::string& className);
 
 public:
     Mtmchkin(Mtmchkin&) = delete;
@@ -75,11 +81,6 @@ public:
     *          int - number of rounds played
     */
     int getNumberOfRounds() const;
-    void addCard(std::string line);
-    void startGame();
-    static int getPlayerCount();
-    void addPlayer();
-    bool testPlayerNameClass(std::string name, std::string className);
 };
 
 
