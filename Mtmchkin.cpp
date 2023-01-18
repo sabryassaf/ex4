@@ -19,7 +19,7 @@
 #include "Players/Warrior.h"
 #include "utilities.h"
 
-Mtmchkin::Mtmchkin(const std::string &fileName) : m_round(0), m_lineNumber(0)
+Mtmchkin::Mtmchkin(const std::string& fileName) : m_round(0), m_lineNumber(0)
 {
     try
     {
@@ -102,25 +102,54 @@ void Mtmchkin::startGame()
     }
 }
 
+std::unique_ptr<Player> createPlayer(const std::string& name, const std::string& className)
+{
+    if (className == "Healer")
+    {
+        return std::unique_ptr<Player>(new Healer(name));
+    }
+    else if (className == "Warrior")
+    {
+        return std::unique_ptr<Player>(new Warrior(name));
+    }
+    else if (className == "Ninja")
+    {
+        return std::unique_ptr<Player>(new Ninja(name));
+    }
+
+    throw std::invalid_argument("Invalid Class for player");
+}
+
 void Mtmchkin::addPlayer()
 {
     printInsertPlayerMessage();
     std::string name, className;
-    std::cin >> name >> className;
-    while (!testPlayerNameClass(name, className))
+    do
     {
+        std::cin >> name >> className;
+    } while (testPlayerNameClass(name, className));
 
-    }
-
+    this->m_players.push_back(createPlayer(name, className));
 }
 
 bool Mtmchkin::testPlayerNameClass(std::string name, std::string className)
 {
+    for (char c: name)
+    {
+        if (!std::isalpha(c))
+        {
+            printInvalidName();
+            return false;
+        }
+    }
+
     if (className != "Warrior" && className != "Ninja" && className != "Healer")
     {
+        printInvalidClass();
         return false;
     }
-    for (std::unique_ptr<Player> & it : m_players)
+
+    for (std::unique_ptr<Player>& it: m_players)
     {
         if (it->getName() == name && it->getPlayerType() == className)
         {
@@ -128,7 +157,6 @@ bool Mtmchkin::testPlayerNameClass(std::string name, std::string className)
         }
     }
 
-    /* TODO */
     return true;
 }
 
@@ -152,7 +180,7 @@ int Mtmchkin::getPlayerCount()
             }
             Flag = true;
         }
-        catch (const std::exception &e)
+        catch (const std::exception& e)
         {
 // not sure what to do here
         }
@@ -166,31 +194,38 @@ void Mtmchkin::addCard(std::string line)
     {
         std::unique_ptr<Card> temp(new Witch());
         m_deck.push(std::move(temp));
-    } else if (line == "Well")
+    }
+    else if (line == "Well")
     {
         std::unique_ptr<Card> temp(new Well());
         m_deck.push(std::move(temp));
-    } else if (line == "Treasure")
+    }
+    else if (line == "Treasure")
     {
         std::unique_ptr<Card> temp(new Treasure());
         m_deck.push(std::move(temp));
-    } else if (line == "Merchant")
+    }
+    else if (line == "Merchant")
     {
         std::unique_ptr<Card> temp(new Merchant());
         m_deck.push(std::move(temp));
-    } else if (line == "Mana")
+    }
+    else if (line == "Mana")
     {
         std::unique_ptr<Card> temp(new Mana());
         m_deck.push(std::move(temp));
-    } else if (line == "Gremlin")
+    }
+    else if (line == "Gremlin")
     {
         std::unique_ptr<Card> temp(new Gremlin());
         m_deck.push(std::move(temp));
-    } else if (line == "Dragon")
+    }
+    else if (line == "Dragon")
     {
         std::unique_ptr<Card> temp(new Dragon());
         m_deck.push(std::move(temp));
-    } else if (line == "Barfight")
+    }
+    else if (line == "Barfight")
     {
         std::unique_ptr<Card> temp(new Barfight());
         m_deck.push(std::move(temp));
