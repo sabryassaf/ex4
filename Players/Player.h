@@ -23,12 +23,16 @@ public:
     explicit Player(std::string name);
 
     Player(const Player&) = default;
-    ~Player() = default;
+    virtual ~Player() = default;
     Player& operator=(const Player& other) = default;
+
+    virtual std::string getPlayerType() const = 0;
 
     std::string getName() const;
     int getLevel() const;
+    bool isMaxLevel() const;
     int getHP() const;
+    int maxHp() const;
     int getCoins() const;
 
     void levelUp();

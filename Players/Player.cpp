@@ -3,7 +3,7 @@
 #include "utilities.h"
 
 Player::Player(std::string name) :
-    m_name(name), m_level(1), m_force(DEFAULT_FORCE), m_hp(), m_coins(0)
+    m_name(name), m_level(1), m_force(DEFAULT_FORCE), m_hp(), m_coins(10)
 {}
 
 std::string Player::getName() const
@@ -36,9 +36,11 @@ void Player::levelUp()
 
 void Player::buff(int buffLevel)
 {
-    if (buffLevel > 0)
+    m_force += buffLevel;
+
+    if (this->m_force < 0)
     {
-        m_force += buffLevel;
+        this->m_force = 0;
     }
 }
 
@@ -100,4 +102,14 @@ std::ostream& operator<<(std::ostream& os, const Player& player)
 {
     player.playerInfo(os);
     return os;
+}
+
+bool Player::isMaxLevel() const
+{
+    return this->m_level == MAX_LEVEL;
+}
+
+int Player::maxHp() const
+{
+    return this->m_hp.getMaxHP();
 }

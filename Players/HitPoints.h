@@ -20,9 +20,10 @@ private:
     void setHP(int value);
 
 public:
-    HitPoints(int maxHp=DEFAULT_MAX_HP);
+    explicit HitPoints(int maxHp=DEFAULT_MAX_HP);
 
     int get_current() const;
+    int getMaxHP() const;
 
     HitPoints operator+(int value) const;
     HitPoints operator-(int value) const;

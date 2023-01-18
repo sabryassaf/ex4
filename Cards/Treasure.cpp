@@ -7,4 +7,5 @@
 void Treasure::applyFinanceCard(Player &player)
 {
     player.addCoins(m_Treasure);
+    printTreasureMessage();
 }

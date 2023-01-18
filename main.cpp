@@ -1,16 +1,32 @@
 
-#include <stdio.h>
 #include <iostream>
-#include "Dragon.h"
+#include <vector>
+#include "Mtmchkin.h"
 
-using std::cout;
-using std::endl;
+using namespace std;
 
 int main()
 {
-    cout << "Test" << endl;
-    Dragon dragon("Dragon");
-    Player player("mezdayen");
-    dragon.applyCard(player);
+    try
+    {
+        Mtmchkin game("deck.txt");
+
+        /* Use for instead of while to prevent infinite game loop. */
+        for (int i = 0; i < 100; ++i)
+        {
+            game.playRound();
+            game.printLeaderBoard();
+
+            if (game.isGameOver())
+            {
+                break;
+            }
+        }
+    }
+    catch (std::exception& e)
+    {
+        cout << e.what() << endl;
+    }
+
     return 0;
 }

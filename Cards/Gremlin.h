@@ -5,12 +5,12 @@
 #ifndef EX4_GREMLIN_H
 #define EX4_GREMLIN_H
 
-#include <Card.h>
+#include "Card.h"
 
 class Gremlin : public BattleCards
 {
 public:
-    Gremlin(string &type) : BattleCards(type, 5, 10, 2)
+    Gremlin() : BattleCards("Gremlin", 5, 10, 2)
     {}
 };
 
