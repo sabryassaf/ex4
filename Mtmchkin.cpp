@@ -5,7 +5,7 @@
 #include "Mtmchkin.h"
 #include "utilities.h"
 
-void Mtmchkin::playCard(Player* player)
+void Mtmchkin::playCard(unique_ptr<Player>& player)
 {
     Card* card = this->m_deck.front();
     this->m_deck.pop_front();
@@ -17,24 +17,23 @@ void Mtmchkin::playRound()
 {
     printRoundStartMessage(this->m_current_round);
 
-    for (auto it = this->m_players.begin(); it != this->m_players.end(); ++it)
+    for (std::unique_ptr<Player>& player: this->m_players)
     {
-        Player* player = *it;
+        if (nullptr == player)
+        {
+            continue;
+        }
 
         printTurnStartMessage(player->getName());
         this->playCard(player);
 
         if (player->isKnockedOut())
         {
-            this->m_losers.push_back(player);
-            it = this->m_players.erase(it);
-            --it;
+            this->m_losers.push_back(std::move(player));
         }
-        if (player->isMaxLevel())
+        else if (player->isMaxLevel())
         {
-            this->m_losers.push_front(player);
-            it = this->m_players.erase(it);
-            --it;
+            this->m_losers.push_front(std::move(player));
         }
     }
 
@@ -50,17 +49,17 @@ void Mtmchkin::printLeaderBoard() const
     int i = 0;
     printLeaderBoardStartMessage();
 
-    for (Player* player: this->m_winners)
+    for (const std::unique_ptr<Player>& player: this->m_winners)
     {
         i++;
         printPlayerLeaderBoard(i, *player);
     }
-    for (Player* player: this->m_players)
+    for (const std::unique_ptr<Player>& player: this->m_players)
     {
         i++;
         printPlayerLeaderBoard(i, *player);
     }
-    for (Player* player: this->m_losers)
+    for (const std::unique_ptr<Player>& player: this->m_losers)
     {
         i++;
         printPlayerLeaderBoard(i, *player);

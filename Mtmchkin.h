@@ -3,6 +3,7 @@
 
 #include <string>
 #include <queue>
+#include <memory>
 #include "Players/Player.h"
 #include "Cards/Card.h"
 
@@ -11,9 +12,9 @@ class Mtmchkin
 private:
     int m_current_round;
 
-    std::deque<Player*> m_players;
-    std::deque<Player*> m_winners;
-    std::deque<Player*> m_losers;
+    std::deque<std::unique_ptr<Player>> m_players;
+    std::deque<std::unique_ptr<Player>> m_winners;
+    std::deque<std::unique_ptr<Player>> m_losers;
 
     std::deque<Card*> m_deck;
 
@@ -22,7 +23,7 @@ private:
      *
      * @param player The player that plays the current turn.
      * */
-    void playCard(Player* player);
+    void playCard(unique_ptr<Player>& player);
 
 public:
     Mtmchkin(Mtmchkin&) = delete;
