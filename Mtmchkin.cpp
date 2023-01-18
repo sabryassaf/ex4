@@ -7,10 +7,10 @@
 
 void Mtmchkin::playCard(unique_ptr<Player>& player)
 {
-    Card* card = this->m_deck.front();
-    this->m_deck.pop_front();
+    unique_ptr<Card> card = std::move(this->m_deck.front());
+    this->m_deck.pop();
     card->applyCard(*player);
-    this->m_deck.push_back(card);
+    this->m_deck.push(std::move(card));
 }
 
 void Mtmchkin::playRound()
@@ -33,7 +33,7 @@ void Mtmchkin::playRound()
         }
         else if (player->isMaxLevel())
         {
-            this->m_losers.push_front(std::move(player));
+            this->m_winners.push_back(std::move(player));
         }
     }
 

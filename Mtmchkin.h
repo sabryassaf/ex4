@@ -12,11 +12,11 @@ class Mtmchkin
 private:
     int m_current_round;
 
-    std::deque<std::unique_ptr<Player>> m_players;
+    std::vector<std::unique_ptr<Player>> m_players;
     std::deque<std::unique_ptr<Player>> m_winners;
-    std::deque<std::unique_ptr<Player>> m_losers;
+    std::vector<std::unique_ptr<Player>> m_losers;
 
-    std::deque<Card*> m_deck;
+    std::queue<unique_ptr<Card>> m_deck;
 
     /**
      * Have the given `player` draw and play the next card in the deck.
