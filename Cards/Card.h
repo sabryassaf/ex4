@@ -65,8 +65,6 @@ public:
     void applyCard(Player &player) override;
 
     virtual void applyPeacefulCard(Player &player) = 0;
-
-    void printCard(std::ostream &os) override;
 };
 
 class FinanceCards : public Card
@@ -80,8 +78,6 @@ public:
 
     void applyCard(Player &player) override;
     virtual void applyFinanceCard(Player &player) = 0;
-
-    void printCard(std::ostream &os) override;
 };
 
 #endif //EX4_CARD_H
