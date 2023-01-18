@@ -4,15 +4,11 @@
 #include "Mtmchkin.h"
 
 Mtmchkin::Mtmchkin(const std::string &fileName) : m_Round(0), m_Line_Number(0)
-//m_Witch(std::make_shared<Witch>()),
-//                                             m_Well(std::make_shared<Well>()), \
-//m_Treasure(std::make_shared<Treasure>()), m_Merchant(std::make_shared<Merchant>()), m_Mana(std::make_shared<Mana>()), \
-//m_Gremlin(std::make_shared<Gremlin>()), m_Dragon(std::make_shared<Dragon>()), m_Barfight(std::make_shared<Barfight>())
 {
     try
     {
         std::ifstream file(fileName);
-        std::cout << !file.is_open() << std::endl;
+//        std::cout << !file.is_open() << std::endl;
         if (!file.is_open())
         {
             throw std::runtime_error("need to change it");
@@ -44,7 +40,7 @@ void Mtmchkin::startGame()
 {
     printStartGameMessage();
     printEnterTeamSizeMessage();
-    int i = getRoundsNumberFromUser();
+    int i = getPlayerCount();
     for (int x = 0; x < i; x++)
     {
         addPlayer();
@@ -71,14 +67,15 @@ bool Mtmchkin::testPlayerNameClass(std::string name, std::string className)
     }
     for (std::unique_ptr<Player> & it: m_PlayersQueue)
     {
-        if (it->getName() == name && it->getPlayerType())
+        if (it->getName() == name && it->getPlayerType() == className)
         {
-            
+            return false;
         }
     }
+
 }
 
-int Mtmchkin::getRoundsNumberFromUser()
+int Mtmchkin::getPlayerCount()
 {
     int input = 0;
     bool Flag = false;

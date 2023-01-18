@@ -71,7 +71,7 @@ public:
     int getNumberOfRounds() const;
     void addCard(std::string line);
     void startGame();
-    int getRoundsNumberFromUser();
+    int getPlayerCount();
     void addPlayer();
     bool testPlayerNameClass(std::string name, std::string className);
 };

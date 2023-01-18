@@ -7,10 +7,10 @@
 
 #include "Card.h"
 
-class Barfight : public PeacefulCards
+class Barfight : public SpecialCards
 {
 public:
-    Barfight() : PeacefulCards("Barfight", 10, 0)
+    Barfight() : SpecialCards("Barfight", 10, 0)
     {
 
     }

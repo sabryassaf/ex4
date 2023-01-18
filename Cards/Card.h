@@ -17,7 +17,9 @@ protected:
 public:
     Card(std::string type) : m_type(type)
     {}
-
+    Card(const Card&) = default;
+    ~Card() = default;
+    Card& operator=(const Card& other) = default;
     std::string getType() const;
 
     virtual void applyCard(Player &player) = 0;
@@ -47,16 +49,16 @@ protected:
 
 };
 
-class PeacefulCards : public Card
+class SpecialCards : public Card
 {
 protected:
     int m_fall_fight_damage;
     int m_heal;
 
 public:
-    PeacefulCards(std::string type, int fall_fight_damage, int heal) : Card(type),
-                                                                   m_fall_fight_damage(fall_fight_damage),
-                                                                   m_heal(heal)
+    SpecialCards(std::string type, int fall_fight_damage, int heal) : Card(type),
+                                                                      m_fall_fight_damage(fall_fight_damage),
+                                                                      m_heal(heal)
     {}
 
     void applyCard(Player &player) override;

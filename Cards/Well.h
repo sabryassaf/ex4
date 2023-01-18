@@ -7,10 +7,10 @@
 
 #include "Card.h"
 
-class Well : public PeacefulCards
+class Well : public SpecialCards
 {
 public:
-    Well() : PeacefulCards("Well", 10, 0)
+    Well() : SpecialCards("Well", 10, 0)
     {};
 
     void applyPeacefulCard(Player &player) override;

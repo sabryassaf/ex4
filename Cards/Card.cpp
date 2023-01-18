@@ -40,7 +40,7 @@ bool BattleCards::cardWins(Player &player)
 }
 
 
-void PeacefulCards::applyCard(Player &player)
+void SpecialCards::applyCard(Player &player)
 {
     applyPeacefulCard(player);
 }
