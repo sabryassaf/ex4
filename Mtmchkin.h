@@ -5,26 +5,13 @@
 #include <memory>
 #include <fstream>
 #include "Exceptions.h"
-#include "Cards/Barfight.h"
-#include "Cards/Dragon.h"
-#include "Cards/Gremlin.h"
-#include "Cards/Mana.h"
-#include "Cards/Merchant.h"
-#include "Cards/Treasure.h"
-#include "Cards/Well.h"
-#include "Cards/Witch.h"
-#include "Cards/Card.h"
 #include <stdexcept>
-#include "Players/Player.h"
-#include "Players/Healer.h"
-#include "Players/HitPoints.h"
-#include "Players/Ninja.h"
-#include "Players/Warrior.h"
+#include <queue>
 class Mtmchkin{
 private:
     int m_round;
     int m_lineNumber;
-    std::vector<std::unique_ptr<Card>> m_deck;
+    std::queue<std::unique_ptr<Card>> m_deck;
     std::vector<std::unique_ptr<Player>> m_players;
 public:
     
