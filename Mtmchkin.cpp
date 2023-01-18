@@ -35,8 +35,8 @@ Mtmchkin::Mtmchkin(const std::string& fileName) : m_round(0)
     {
         try
         {
-            addCard(line);
             lineNumber++;
+            addCard(line);
         }
         catch (std::invalid_argument& e)
         {

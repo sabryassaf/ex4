@@ -43,9 +43,9 @@ public:
 protected:
     virtual void applyCardDamage(Player &player);
 
-    void applyCardWins(Player &player);
+    void applyPlayerWins(Player &player);
 
-    bool cardWins(Player &player);
+    bool playerWins(Player &player);
 
     virtual void printCard(std::ostream& os) override;
 };
@@ -64,7 +64,7 @@ public:
 
     void applyCard(Player &player) override;
 
-    virtual void applyPeacefulCard(Player &player) = 0;
+    virtual void applySpecialCard(Player &player) = 0;
 };
 
 class FinanceCards : public Card

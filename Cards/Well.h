@@ -13,7 +13,7 @@ public:
     Well() : SpecialCards("Well", 10, 0)
     {};
 
-    void applyPeacefulCard(Player &player) override;
+    void applySpecialCard(Player &player) override;
 };
 
 #endif //EX4_WELL_H

@@ -22,9 +22,9 @@ std::ostream& operator<<(std::ostream& os, Card& card)
 
 void BattleCards::applyCard(Player &player)
 {
-    if (cardWins(player))
+    if (playerWins(player))
     {
-        applyCardWins(player);
+        applyPlayerWins(player);
     } else
     {
         applyCardDamage(player);
@@ -37,14 +37,14 @@ void BattleCards::applyCardDamage(Player &player)
     player.damage(m_damage);
 }
 
-void BattleCards::applyCardWins(Player &player)
+void BattleCards::applyPlayerWins(Player &player)
 {
     player.levelUp();
     player.addCoins(m_loot);
     printWinBattle(player.getName(), getType());
 }
 
-bool BattleCards::cardWins(Player &player)
+bool BattleCards::playerWins(Player &player)
 {
     return player.getAttackStrength() >= m_force;
 }
@@ -61,7 +61,7 @@ void BattleCards::printCard(std::ostream& os)
 
 void SpecialCards::applyCard(Player &player)
 {
-    applyPeacefulCard(player);
+    applySpecialCard(player);
 }
 
 void FinanceCards::applyCard(Player &player)

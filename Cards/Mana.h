@@ -13,7 +13,7 @@ public:
     Mana() : SpecialCards("Mana", 0, 10)
     {}
 
-    void applyPeacefulCard(Player &player) override;
+    void applySpecialCard(Player &player) override;
 };
 
 #endif //EX4_MANA_H

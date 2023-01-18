@@ -3,9 +3,14 @@
 //
 
 #include "Well.h"
-void Well::applyPeacefulCard(Player &player)
+void Well::applySpecialCard(Player &player)
 {
-    if(player.getName() != "Ninja"){
+    if(player.getPlayerType() != "Ninja"){
         player.damage(m_fall_fight_damage);
+        printWellMessage(false);
+    }
+    else
+    {
+        printWellMessage(true);
     }
 }

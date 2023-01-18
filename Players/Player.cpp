@@ -36,9 +36,11 @@ void Player::levelUp()
 
 void Player::buff(int buffLevel)
 {
-    if (buffLevel > 0)
+    m_force += buffLevel;
+
+    if (this->m_force < 0)
     {
-        m_force += buffLevel;
+        this->m_force = 0;
     }
 }
 

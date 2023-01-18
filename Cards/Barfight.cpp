@@ -4,9 +4,15 @@
 
 #include "Barfight.h"
 
-void Barfight::applyPeacefulCard(Player &player)
+void Barfight::applySpecialCard(Player &player)
 {
-    if(player.getName() != "Warrior"){
+    if(player.getPlayerType() != "Warrior")
+    {
         player.damage(m_fall_fight_damage);
+        printBarfightMessage(false);
+    }
+    else
+    {
+        printBarfightMessage(true);
     }
 }

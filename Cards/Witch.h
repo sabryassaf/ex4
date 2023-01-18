@@ -14,6 +14,7 @@ public:
     Witch() : BattleCards("Witch",11,10,2)
     {}
 
+    void applyCard(Player &player) override;
 };
 
 #endif //EX4_WITCH_H

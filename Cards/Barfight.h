@@ -15,7 +15,7 @@ public:
 
     }
 
-    void applyPeacefulCard(Player &player) override;
+    void applySpecialCard(Player &player) override;
 };
 
 #endif //EX4_BARFIGHT_H

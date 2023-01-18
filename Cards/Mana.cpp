@@ -4,14 +4,15 @@
 
 #include "Mana.h"
 
-void Mana::applyPeacefulCard(Player &player)
+void Mana::applySpecialCard(Player &player)
 {
-    if (player.getName() == "Healer")
-    {
-        player.heal(2 * m_heal);
-        return;
-    } else
+    if (player.getPlayerType() == "Healer")
     {
         player.heal(10);
+        printManaMessage(true);
+    }
+    else
+    {
+        printManaMessage(false);
     }
 }
