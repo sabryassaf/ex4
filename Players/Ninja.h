@@ -12,6 +12,7 @@ class Ninja : public Player
 public:
     explicit Ninja(std::string name);
 
+    std::string getPlayerType() const override;
     void addCoins(int money) override;
     void playerInfo(std::ostream& os) const override;
 };

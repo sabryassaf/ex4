@@ -12,6 +12,7 @@ class Warrior : public Player
 public:
     explicit Warrior(std::string name);
 
+    std::string getPlayerType() const override;
     int getAttackStrength() const override;
     void playerInfo(std::ostream &os) const override;
 };

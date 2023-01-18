@@ -23,3 +23,8 @@ void Healer::playerInfo(std::ostream& os) const
                        this->m_hp.get_current(),
                        this->m_coins);
 }
+
+std::string Healer::getPlayerType() const
+{
+    return "Healer";
+}
