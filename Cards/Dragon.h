@@ -15,5 +15,6 @@ public:
 
     void applyCardDamage(Player &player) override;
 
+    void printCard(std::ostream &os) override;
 };
 #endif //EX4_DRAGON_H
