@@ -15,20 +15,17 @@
 #include "Cards/Witch.h"
 #include "Cards/Card.h"
 #include <stdexcept>
+#include "Players/Player.h"
+#include "Players/Healer.h"
+#include "Players/HitPoints.h"
+#include "Players/Ninja.h"
+#include "Players/Warrior.h"
 class Mtmchkin{
 private:
     int m_Round;
     int m_Line_Number;
     std::vector<std::unique_ptr<Card>> m_CardDeck;
-    vector<Player> m_PlayersQueue;
-//    std::shared_ptr<Witch> m_Witch;
-//    std::shared_ptr<Well> m_Well;
-//    std::shared_ptr<Treasure> m_Treasure;
-//    std::shared_ptr<Merchant> m_Merchant;
-//    std::shared_ptr<Mana> m_Mana;
-//    std::shared_ptr<Gremlin> m_Gremlin;
-//    std::shared_ptr<Dragon> m_Dragon;
-//    std::shared_ptr<Barfight> m_Barfight;
+    std::vector<std::unique_ptr<Player>> m_PlayersQueue;
 public:
     
     /*

@@ -3,7 +3,7 @@
 //
 #include "Mtmchkin.h"
 
-Mtmchkin::Mtmchkin(const string &fileName) : m_Round(0), m_Line_Number(0)
+Mtmchkin::Mtmchkin(const std::string &fileName) : m_Round(0), m_Line_Number(0)
 //m_Witch(std::make_shared<Witch>()),
 //                                             m_Well(std::make_shared<Well>()), \
 //m_Treasure(std::make_shared<Treasure>()), m_Merchant(std::make_shared<Merchant>()), m_Mana(std::make_shared<Mana>()), \
@@ -12,7 +12,7 @@ Mtmchkin::Mtmchkin(const string &fileName) : m_Round(0), m_Line_Number(0)
     try
     {
         std::ifstream file(fileName);
-        cout << !file.is_open() << endl;
+        std::cout << !file.is_open() << std::endl;
         if (!file.is_open())
         {
             throw std::runtime_error("need to change it");
@@ -55,7 +55,7 @@ void Mtmchkin::addPlayer()
 {
     printInsertPlayerMessage();
     std::string name, className;
-    cin >> name >> className;
+    std::cin >> name >> className;
     while (!testPlayerNameClass(name, className))
     {
 
@@ -69,9 +69,12 @@ bool Mtmchkin::testPlayerNameClass(std::string name, std::string className)
     {
         return false;
     }
-    for (Player it: m_PlayersQueue)
+    for (std::unique_ptr<Player> & it: m_PlayersQueue)
     {
-        if(it.getName() == name && it.g)
+        if (it->getName() == name && it->getPlayerType())
+        {
+            
+        }
     }
 }
 

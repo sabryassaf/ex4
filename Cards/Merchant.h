@@ -15,7 +15,7 @@ public:
 
     }
     void applyFinanceCard(Player &player) override;
-    void applyPayment(ostream &os,Player& player, int x);
+    void applyPayment(std::ostream &os,Player& player, int x);
 };
 
 #endif //EX4_MERCHANT_H

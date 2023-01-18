@@ -6,20 +6,19 @@
 #define EX4_CARD_H
 
 #include <string>
-#include <Player.h>
 #include "utilities.h"
-using namespace std;
+#include "Players/Player.h"
 
 class Card
 {
 protected:
-    string m_type;
+    std::string m_type;
 
 public:
-    Card(string type) : m_type(type)
+    Card(std::string type) : m_type(type)
     {}
 
-    string getType() const;
+    std::string getType() const;
 
     virtual void applyCard(Player &player) = 0;
 };
@@ -32,7 +31,7 @@ protected:
     int m_loot;
 
 public:
-    BattleCards(string type, int force, int damage, int loot) : Card(type), m_force(force),
+    BattleCards(std::string type, int force, int damage, int loot) : Card(type), m_force(force),
                                                                  m_damage(damage), m_loot(loot)
     {}
 
@@ -55,7 +54,7 @@ protected:
     int m_heal;
 
 public:
-    PeacefulCards(string type, int fall_fight_damage, int heal) : Card(type),
+    PeacefulCards(std::string type, int fall_fight_damage, int heal) : Card(type),
                                                                    m_fall_fight_damage(fall_fight_damage),
                                                                    m_heal(heal)
     {}
@@ -71,7 +70,7 @@ protected:
     int m_Treasure;
 
 public:
-    FinanceCards(string  type, int treasure) : Card(type), m_Treasure(treasure)
+    FinanceCards(std::string  type, int treasure) : Card(type), m_Treasure(treasure)
     {}
 
     void applyCard(Player &player) override;

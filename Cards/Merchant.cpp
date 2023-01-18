@@ -6,11 +6,11 @@
 void Merchant::applyFinanceCard(Player &player)
 {
 //    printMerchantInitialMessageForInteractiveEncounter(cout, player.getName(), player.getCoins());
-    string input;
+    std::string input;
     int x;
     while (true)
     {
-        getline(cin, input);
+        getline(std::cin, input);
         if (input != "0" && input != "1" && input != "2")
         {
 //            printInvalidInput();
@@ -19,7 +19,7 @@ void Merchant::applyFinanceCard(Player &player)
         try
         {
             x = stoi(input);
-            applyPayment(cout, player, x);
+            applyPayment(std::cout, player, x);
             break;
         }
         catch (std::invalid_argument &e)
@@ -30,7 +30,7 @@ void Merchant::applyFinanceCard(Player &player)
 
 }
 
-void Merchant::applyPayment(ostream &os, Player &player, int x)
+void Merchant::applyPayment(std::ostream &os, Player &player, int x)
 {
     switch (x)
     {

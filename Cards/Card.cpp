@@ -3,7 +3,7 @@
 //
 #include "Card.h"
 
-string Card::getType() const
+std::string Card::getType() const
 {
     return m_type;
 };

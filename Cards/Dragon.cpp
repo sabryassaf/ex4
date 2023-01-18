@@ -5,5 +5,5 @@
 #include "Dragon.h"
 void Dragon::applyCardDamage(Player &player)
 {
-    player.damage(player.maxHp());
+    player.damage(player.getHP());
 }
