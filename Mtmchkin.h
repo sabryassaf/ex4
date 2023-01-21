@@ -1,15 +1,12 @@
 #ifndef MTMCHKIN_H_
 #define MTMCHKIN_H_
 
-#include <string>
 #include <memory>
 #include <queue>
 #include <vector>
 #include <fstream>
 #include "Players/Player.h"
 #include "Cards/Card.h"
-#include "Exceptions.h"
-#include <stdexcept>
 
 class Mtmchkin
 {

@@ -1,9 +1,8 @@
 //
 //
 
-#include <algorithm>
 #include "Mtmchkin.h"
-#include "Exceptions.h"
+#include "Exception.h"
 #include "Cards/Barfight.h"
 #include "Cards/Dragon.h"
 #include "Cards/Gremlin.h"
