@@ -12,6 +12,11 @@ void Merchant::applyFinanceCard(Player& player)
     while (true)
     {
         getline(std::cin, input);
+        /* Ignore empty line input. */
+        if (input.empty())
+        {
+            continue;
+        }
         if (input != "0" && input != "1" && input != "2")
         {
             printInvalidInput();

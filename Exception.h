@@ -15,16 +15,16 @@ class DeckFileFormatError : public std::exception
 private:
     int m_lineNumber;
     static const int MESSAGE_LENGTH = 64;
+    char m_message[MESSAGE_LENGTH];
 
 public:
     DeckFileFormatError(int lineNumber): m_lineNumber(lineNumber){};
 
     const char * what() const noexcept override
     {
-        char* output = new char[MESSAGE_LENGTH];
-        snprintf(output, MESSAGE_LENGTH, "Deck File Error: File format error in line %d",
+        snprintf((char *)(this->m_message), MESSAGE_LENGTH, "Deck File Error: File format error in line %d",
                  this->m_lineNumber);
-        return output;
+        return this->m_message;
     }
 };
 
