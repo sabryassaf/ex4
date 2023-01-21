@@ -3,7 +3,7 @@
 //
 
 #include "Warrior.h"
-#include "utilities.h"
+#include "../utilities.h"
 
 Warrior::Warrior(std::string name) : Player(name)
 {}

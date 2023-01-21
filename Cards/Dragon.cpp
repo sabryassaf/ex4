@@ -10,6 +10,7 @@ void Dragon::applyCardDamage(Player &player)
 
 void Dragon::printCard(std::ostream& os)
 {
+    printCardDetails(os, this->getType());
     printMonsterDetails(os,
                         this->m_force,
                         this->m_damage,

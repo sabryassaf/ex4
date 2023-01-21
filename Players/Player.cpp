@@ -1,6 +1,5 @@
 
 #include "Player.h"
-#include "utilities.h"
 
 Player::Player(std::string name) :
     m_name(name), m_level(1), m_force(DEFAULT_FORCE), m_hp(), m_coins(10)

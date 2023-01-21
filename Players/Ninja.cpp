@@ -3,7 +3,7 @@
 //
 
 #include "Ninja.h"
-#include "utilities.h"
+#include "../utilities.h"
 
 Ninja::Ninja(std::string name) : Player(name)
 {}

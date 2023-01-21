@@ -3,7 +3,7 @@
 //
 
 #include "Healer.h"
-#include "utilities.h"
+#include "../utilities.h"
 
 Healer::Healer(std::string name) : Player(name)
 {}

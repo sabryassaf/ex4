@@ -23,6 +23,8 @@ Mtmchkin::Mtmchkin(const std::string& fileName) : m_round(0)
 {
     int lineNumber = 0;
 
+    printStartGameMessage();
+
     std::ifstream file(fileName);
     if (!file.is_open())
     {
@@ -92,7 +94,6 @@ void Mtmchkin::playRound()
 
 void Mtmchkin::startGame()
 {
-    printStartGameMessage();
     printEnterTeamSizeMessage();
     int i = getPlayerCount();
     for (int x = 0; x < i; x++)
